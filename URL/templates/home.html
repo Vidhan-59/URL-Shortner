@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTNER</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <form action="." method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Save"/>
+    </form>
+    <div class="url-container">
+        <h2>Generated URL</h2>
+        <p id="generated-url">{{shortenurl}}</p>
+      </div>
+
+       
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form action="." method="POST" class="url-form">
+            {% csrf_token %}
+            {{form.as_p}}
+        <!-- <input type="submit" value="Save"/> -->
+            <button type="submit" value="Save" class="btn">Shorten URL</button>
+        </form>
+        <div class="shortened-url-container">
+            {% if shortenurl %}
+                <h2>Generated URL</h2>
+                <p id="generated-url">{{shortenurl}}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
